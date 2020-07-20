@@ -66,10 +66,10 @@ const Popularmovies = () => {
                     (<li className="error">error</li>) :
 
                     state.data.map(({original_title, overview, release_date, backdrop_path, poster_path, id}) => {
-                        console.log(poster_path);
                         return (
                         <Movielist
                             key = {id}
+                            id = {id}
                             title = {original_title}
                             overview = {overview}
                             releasedate = {release_date}

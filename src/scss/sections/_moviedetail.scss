@@ -1,0 +1,49 @@
+
+.detail-banner {
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+}
+  
+.detail-banner .wrapper{
+    width: 100%;
+    position: relative;
+}
+
+.movie-name {
+    @include position(absolute, 1, 50%, auto, auto, 50%);
+    transform: translateX(-50%) translateY(-50%);
+
+    span {
+        display: block;
+        text-align: center;
+        color: $white;
+        font-weight: 200;
+    }
+}
+
+h4 {
+    padding-bottom: 20px;
+    font-size: 30px;
+    font-weight: 900;
+    color: #FFF;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h5 {
+    @include textcharacteristics($primaryColor, 25px, 800, uppercase);
+}
+
+.movie-details {
+    background-color: rgba(0,0,0,0.1);
+    padding-top: 3%;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.movie-details p {
+    text-align: justify;
+    padding: 30px 0;
+    @include textcharacteristics($primaryColor, 15px, 400);
+}

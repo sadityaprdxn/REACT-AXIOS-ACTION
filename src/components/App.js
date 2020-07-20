@@ -7,11 +7,21 @@ import {
   Redirect
 } from 'react-router-dom';
 import Popularmovies from './Popularmovies';
+import Moviedetail from './Moviedetail';
 
 const App = () => {
 
   return (
-    <Popularmovies />
+    <Router>
+      <Switch>
+        <Route path="/" exact>
+          <Popularmovies />
+        </Route>
+        <Route path="/:id" exact>
+          <Moviedetail />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 

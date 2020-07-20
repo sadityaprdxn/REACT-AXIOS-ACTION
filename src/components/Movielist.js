@@ -1,15 +1,23 @@
-import React, { useState , useEffect } from 'react';
+import React, { useRef } from 'react';
 import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect
+  Redirect,
+  useHistory
 } from 'react-router-dom';
 
-const Movielist = ({title, overview, releasedate, banner, poster}) => {
+const Movielist = ({title, releasedate, banner, poster, id}) => {
+    
+    const history = useHistory();
+    const liref = useRef();
+
+    const movieDetail = () => {
+        history.push(`/${liref.current.getAttribute('data-uniqueid')}`)
+    }
 
   return (
-    <li>
+    <li data-uniqueid={id} ref={liref} onClick={movieDetail}>
         <div className="movie-posters">
             <figure>
                 <img src={`https://image.tmdb.org/t/p/w92${banner}`} alt="banner-image"/>
