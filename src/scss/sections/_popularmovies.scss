@@ -1,0 +1,96 @@
+.popular-movies {
+    h2 {
+        padding: 30px 0;
+        @include textcharacteristics($primaryColor, 25px, 800, uppercase);
+        text-align: center;
+    }
+
+    .movies-list {
+        @include flex(wrap, row, space-around, center, center);
+
+        & > li {
+            width: 23%;
+            margin: 20px 0;
+            border-radius: 20px;
+            overflow: hidden;
+            background-color: $cardBackground;
+            box-shadow: 5px 10px 18px $shadow;
+
+            @include breakpoint(notebook) { width: 32%; }
+            @include breakpoint(phone) { width: 45%; }
+            @include breakpoint(iphone) { width: 100%; }
+        }
+    }
+
+    .movie-posters { 
+        position: relative;
+
+        figure:last-child {
+            width: 40%;
+            @include position(absolute, 1, 100%, auto, auto, 50%);
+            transform: translateX(-50%) translateY(-50%);
+            box-sizing: border-box;
+
+            img {
+                clip-path: circle(38% at 50% 50%);
+                box-sizing: border-box;
+            }
+        }
+
+        figure:first-child {
+            overflow: hidden;
+
+            img { transition: 0.3s ease-in-out; }
+
+            &:hover {
+                img {
+                    transform: scale(1.2);
+                }
+            }
+        }
+    }
+
+    .movie-details {
+        padding: 70px 20px 20px;
+        box-sizing: border-box;
+
+        ul {
+            @include flex(wrap, row, space-between, center, center);
+        }
+    }
+
+    h3 {
+        padding-bottom: 10px;
+        @include textcharacteristics($primaryColor, 15px, 800, uppercase);
+        text-align: center;
+    }
+
+    p {
+        padding-bottom: 15px;
+        @include textcharacteristics($primaryColor, 13px, 400);
+        text-align: justify;
+    }
+
+    .movie-release-date {
+        @include textcharacteristics($primaryColor, 13px, 800, uppercase);
+    }
+
+    .star {
+        &::before {
+            content: "\f005";
+            font-family: "fontAwesome";
+            text-indent: 0;
+            color: $primaryColor;
+            float: right;
+            font-size: 13px;
+            transition: 0.3s ease-in-out;
+        }
+    }
+
+    .loading,
+    .error {
+        padding: 20px 0;
+        text-align: center;
+        @include textcharacteristics($primaryColor, 15px, 800, uppercase);
+    }
+}
